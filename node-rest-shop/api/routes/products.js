@@ -9,8 +9,13 @@ router.get("/", (request, response, next) => {
 
 
 router.post("/", (request, response, next) => {
-    response.status(200).json({
-        message: "Handling POST requests to /products"
+    const product = {
+        name: request.body.name,
+        price: request.body.price
+    };
+    response.status(201).json({
+        message: "Handling POST requests to /products",
+        createProductResponse: product
     })
 })
 
