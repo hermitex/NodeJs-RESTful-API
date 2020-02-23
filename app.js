@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser")
+const mongoose = require("mongoose");
+
+
 
 const productsRoutes = require("./node-rest-shop/api/routes/products");
 const ordersRoutes = require("./node-rest-shop/api/routes/orders");
 
-
+mongoose.connect("mongodb+srv://hermitex:" + process.env.MONGO_ATLAS_PW + "@cluster0-b3zu7.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Middleware
 app.use(morgan("dev"));
